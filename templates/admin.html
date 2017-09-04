@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员页面</title>
+</head>
+<body>
+    <form action="/admin/user/update" method="post">
+        <input name="id" placeholder="id">
+        <br>
+        <input name="password" placeholder="password">
+        <br>
+        <button>修改密码</button>
+    </form>
+    {% for user in user_list %}
+        <h3>id: {{ user.id }}</h3>
+        <h3>username: {{ user.username }}</h3>
+        <h3>password: {{ user.password }}</h3>
+    {% endfor %}
+</body>
+</html>

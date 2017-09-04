@@ -1,0 +1,26 @@
+[
+  {
+    "created_time": null,
+    "content": "是啊，阳光明媚！",
+    "updated_time": null,
+    "id": 0,
+    "weibo_id": 0,
+    "user_id": 0
+  },
+  {
+    "created_time": null,
+    "content": "魅力无限！",
+    "updated_time": null,
+    "id": 1,
+    "weibo_id": 0,
+    "user_id": 1
+  },
+  {
+    "created_time": null,
+    "content": "pypy+",
+    "updated_time": null,
+    "id": 2,
+    "weibo_id": 1,
+    "user_id": 0
+  }
+]

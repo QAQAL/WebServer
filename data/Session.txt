@@ -1,0 +1,17 @@
+[
+  {
+    "session_id": "g45e3bg3k2slsgsg",
+    "id": 0,
+    "user_id": 0
+  },
+  {
+    "session_id": "525eege42jg5kkr5",
+    "id": 1,
+    "user_id": 1
+  },
+  {
+    "session_id": "d222ekjl252jej4e",
+    "id": 2,
+    "user_id": 0
+  }
+]
