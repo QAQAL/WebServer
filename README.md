@@ -8,4 +8,8 @@
 
 实现了用户注册，登录，发表todo，weibo和comment；
 
+![image](https://github.com/QAQAL/WebServer/blob/master/static/demo/user.gif)
+
 设置了管理员模式，将user_id为1的账号设为管理员账号，管理员能查看所有用户信息，修改用户密码
+
+![image](https://github.com/QAQAL/WebServer/blob/master/static/demo/admin.gif)
