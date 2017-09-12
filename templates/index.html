@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Wfbos主页</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Hello {{username}}</h1>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-    <img src="/static?file=doge.gif"/>
-    <img src="/static?file=doge1.jpg"/>
-    <img src="/static?file=doge2.gif"/>
-    <br>
-    <br>
-    <a href="/todo/index">Todo</a>
-    <a href="/weibo/index">Weibo</a>
-    <br>
-    <br>
-    <a href="/admin_password_edit">Change Password</a>
-    <br>
-    <br>
-    <a href="/admin/users">Admin</a>
-</body>
+    <body>
+        <div class="center">
+            <h1>Hello {{username}}</h1>
+
+            <img src="/static?file=doge.gif"/>
+            <span></span>
+            <img src="/static?file=doge1.jpg"/>
+            <span></span>
+            <img src="/static?file=doge2.gif"/>
+
+            <div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+                <a href="#" class="pure-button pure-button-primary">{{username}}</a>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
+                    <li class="pure-menu-item"><a href="/register" class="pure-menu-link">Register</a></li>
+                    <li class="pure-menu-item"><a href="/todo/index" class="pure-menu-link">Todo</a></li>
+                    <li class="pure-menu-item"><a href="/weibo/index" class="pure-menu-link">Weibo</a></li>
+                    <li class="pure-menu-item"><a href="/admin_password_edit" class="pure-menu-link">Change Password</a></li>
+                    <li class="pure-menu-item"><a href="/admin/users" class="pure-menu-link">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+<style>
+    .center {
+        position: absolute;
+        left: 50%;
+        top:35%;
+        transform: translate(-50%,-50%);
+    }
+    </style>
 </html>

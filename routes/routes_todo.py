@@ -23,10 +23,11 @@ def edit(request):
     """
     todo 首页的路由函数
     """
+    u = current_user(request)
     todo_id = int(request.query.get('id'))
     t = Todo.find_by(id=todo_id)
     # 替换模板文件中的标记字符串
-    body = template('todo_edit.html', todo=t)
+    body = template('todo_edit.html', todo=t, user=u)
     return http_response(body)
 
 

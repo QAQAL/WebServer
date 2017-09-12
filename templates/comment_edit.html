@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>修改comment页面</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
 </head>
 <body>
-    <h1>修改 comment</h1>
-    <form action="/comment/update" method="post">
-        <input hidden="hidden" name="id" placeholder="id" value="{{ comment.id }}"></input>
-        <br>
-        <input name="content" placeholder="content" value="{{ comment.content }}"></input>
-        <br>
-        <button>提交修改</button>
+<div class="center">
+    <h1>修改 {{ user.username }} 的Comment</h1>
+    <form class="pure-form" action="/comment/update" method="post">
+        <input hidden="hidden" name="id" value="{{ comment.id }}">
+
+        <input name="content" placeholder="content" value="{{ comment.content }}">
+
+        <button type="submit" class="pure-button pure-button-primary">提交修改</button>
     </form>
+</div>
 </body>
+<style>
+    .center {
+        position: absolute;
+        left: 35%;
+        top: 30%;
+    }
+</style>
 </html>

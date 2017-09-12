@@ -75,7 +75,7 @@ def update_user_password(request):
     form['password'] = User.salted_password(form['password'])
     user_id = int(form.get('id', -1))
     User.update(user_id, form)
-    return redirect('/admin_password_edit')
+    return redirect('/login')
 
 
 def edit_password(request):

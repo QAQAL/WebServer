@@ -3,35 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <title>weibo</title>
-    <style>
-        .comment {
-            border: 1px red solid;
-        }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
 </head>
 <body>
-    <a href="/weibo/new">写新微博</a>
-    <h3>当前用户 {{ user.username }}</h3>
 
+<div class="center0">
+    <h2>当前用户 <a href="/">< {{ user.username }} ></a></h2>
+</div>
+<div class="center1">
+    <form class="pure-form" action="/weibo/add" method="post">
+        <fieldset>
+        <textarea type="text" name="content"></textarea>
+
+        <button type="submit" class="pure-button pure-button-primary">发表新微博</button>
+        </fieldset>
+    </form>
+</div>
+
+<div class="center">
     {% for w in weibos %}
         <p>
-            {{ w.content }} from {{ w.user().username }}
-                <a href="/weibo/delete?id={{ w.id }}">删除</a>
-                <a href="/weibo/edit?id={{ w.id }}">修改</a>
+            <div class="pure-button">
+                <span class="pure-button">
+                    {{ w.content }} from < {{ w.user().username }} >
+                </span>
+                <a class="pure-button pure-button-primary" href="/weibo/delete?id={{ w.id }}">删除</a>
+                <a class="pure-button pure-button-primary" href="/weibo/edit?id={{ w.id }}">修改</a>
+                <br>
                 {% for c in w.comments() %}
-                <div class="comment">
-                    {{ c.user().username }} : {{ c.content }}
-                    <a href="/comment/delete?id={{c.id}}">删除</a>
-                    <a href="/comment/edit?id={{c.id}}">修改</a>
+
+                <br>
+                <div >
+                    <span>
+                    < {{ c.user().username }} > : {{ c.content }}</span>
+                    <a class="pure-button-primary" href="/comment/delete?id={{c.id}}">删除</a>
+                    <a class="pure-button-primary" href="/comment/edit?id={{c.id}}">修改</a>
                 </div>
             {% endfor %}
+            <br>
             <form action="/comment/add" method="post">
                 <input type="hidden" name="weibo_id" value="{{ w.id }}">
                 <input name="content">
-                <br>
-                <button type="submit">添加评论</button>
+                <button class="pure-button-primary" type="submit">添加评论</button>
             </form>
+        </div>
         </p>
     {% endfor %}
+    </div>
+
 </body>
+<style>
+    .center {
+        position: absolute;
+        left: 30%;
+        top: 35%;
+    }
+    .center0 {
+        position: absolute;
+        left: 47%;
+        top: 10%;
+        transform: translate(-50%,-50%);
+    }
+    .center1 {
+        position: absolute;
+        left: 47%;
+        top: 25%;
+        transform: translate(-50%,-50%);
+    }
+    .left {
+    position: relative;
+    left: 0;
+    }
+</style>
 </html>

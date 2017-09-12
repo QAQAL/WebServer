@@ -1,12 +1,7 @@
 [
   {
-    "content": "今天是个好日子！",
+    "user_id": 4,
     "id": 0,
-    "user_id": 0
-  },
-  {
-    "content": "我爱Python！",
-    "id": 1,
-    "user_id": 1
+    "content": "大家好"
   }
 ]

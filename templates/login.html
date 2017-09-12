@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>登录页面</title>
-</head>
-<body>
-    <h1>登录</h1>
-    <h2>你好 {{username}}</h2>
-    <form action="/login" method="post">
-        <input type="text" name="username" placeholder="请输入用户名">
-        <br>
-        <input type="text" name="password" placeholder="请输入密码">
-        <br>
-        <button type="submit">登录</button>
-    </form>
-    <h3>{{result}}</h3>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>登录页面</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="center">
+    <h1 class="center_left">你好<{{username}}>,  {{result}}</h1><span></span>
+        <form class="pure-form pure-form-aligned" action="/login" method="post">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label>Username</label>
+                    <input name="username" type="text" placeholder="Username">
+                </div>
+
+                <div class="pure-control-group">
+                    <label>Password</label>
+                    <input name="password" type="password" placeholder="Password">
+                </div>
+
+                <div class="pure-controls">
+                    <button type="submit" class="pure-button pure-button-primary">登录</button>
+                <span>
+                     如无账号，请
+                    <a class="pure-button pure-button-primary" href="/register">注册</a>
+                </span>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    </body>
+    <style>
+    .center_left {
+        position: relative;
+        left: 110px;
+    }
+    .center {
+        position: absolute;
+        left: 40%;
+        top:40%;
+        transform: translate(-50%,-50%);
+    }
+    </style>
 </html>

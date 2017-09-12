@@ -3,19 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>管理员页面</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+
 </head>
 <body>
-    <form action="/admin/user/update" method="post">
-        <input name="id" placeholder="id">
-        <br>
-        <input name="password" placeholder="password">
-        <br>
-        <button>修改密码</button>
-    </form>
-    {% for user in user_list %}
-        <h3>id: {{ user.id }}</h3>
-        <h3>username: {{ user.username }}</h3>
-        <h3>password: {{ user.password }}</h3>
+    <div class="left">
+        <h1>管理员</h1>
+        <form class="pure-form pure-form-aligned" action="/admin/user/update" method="post">
+            <fieldset>
+                <div class="pure-control-group">
+                    <input name="id" type="text" placeholder="请输入id">
+                </div>
+
+                <div class="pure-control-group">
+                    <input name="password" type="text" placeholder="请输入密码">
+                </div>
+
+                <div class="pure-controls center_right">
+                    <button type="submit" class="pure-button pure-button-primary">修改密码</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="center_left">
+    <table class="pure-table pure-table-horizontal">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>username</th>
+            <th>password</th>
+        </tr>
+    </thead>
+
+    <tbody>
+     {% for user in user_list %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+        </tr>
     {% endfor %}
+    </tbody>
+</table>
+</div>
+
 </body>
+<style>
+    .center_left {
+        position: relative;
+        top: 50px;
+        left: 380px;
+    }
+    .center_right{
+        position: relative;
+        right: 175px;
+    }
+    .left {
+        position: absolute;
+        left: 250px;
+        top:40%;
+        transform: translate(-50%,-50%);
+    </style>
 </html>

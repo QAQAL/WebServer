@@ -18,11 +18,6 @@ def index(request):
     return http_response(body)
 
 
-def new(request):
-    body = template('weibo_new.html')
-    return http_response(body)
-
-
 def add(request):
     u = current_user(request)
     # 创建微博
@@ -43,8 +38,10 @@ def delete(request):
 def edit(request):
     weibo_id = int(request.query.get('id', -1))
     w = Weibo.find(weibo_id)
+    user = current_user(request)
+
     # 生成一个 edit 页面
-    body = template('weibo_edit.html', weibo=w)
+    body = template('weibo_edit.html', weibo=w, user=user)
     return http_response(body)
 
 
@@ -72,8 +69,9 @@ def comment_add(request):
 def comment_edit(request):
     comment_id = int(request.query.get('id', -1))
     c = Comment.find(comment_id)
+    user = current_user(request)
     # 生成一个 edit 页面
-    body = template('comment_edit.html', comment=c)
+    body = template('comment_edit.html', comment=c, user=user)
     return http_response(body)
 
 
@@ -135,13 +133,9 @@ def comment_user_required(route_function):
     return f
 
 
-
-
-
 def route_dict():
     r = {
         '/weibo/index': login_required(index),
-        '/weibo/new': login_required(new),
         '/weibo/edit': login_required(weibo_user_required(edit)),
         '/weibo/add': login_required(add),
         '/weibo/update': login_required(weibo_user_required(update)),

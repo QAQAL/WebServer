@@ -3,23 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>todo</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
 </head>
 <body>
-    <h3>当前用户 {{ user.username }}</h3>
+    <div class="center">
+        <h2>当前用户 <a href="/">{{ user.username }}</a></h2>
 
-    <form action="/todo/add" method="post">
-        <input name="task">
-        <button>添加Todo</button>
-    </form>
+        <form class="pure-form" action="/todo/add" method="post">
+            <fieldset>
+                <input type="text" name="task" placeholder="todo">
 
-    {% for t in todos %}
-        <div>
-            {{ t.id }} : {{ t.task }}
-            <a href="/todo/delete?id={{t.id}}">删除</a>
-            <a href="/todo/edit?id={{t.id}}">修改</a>
-            创建时间： {{ t.formatted_created_time() }}
-            修改时间： {{ t.formatted_updated_time() }}
-        </div>
-    {% endfor %}
+                <button type="submit" class="pure-button pure-button-primary">添加Todo</button>
+            </fieldset>
+        </form>
+
+        <table class="pure-table pure-table-horizontal">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>task</th>
+                    <th>删除</th>
+                    <th>修改</th>
+                    <th>创建时间</th>
+                    <th>修改时间</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for t in todos %}
+                <tr>
+                    <td>{{ t.id }}</td>
+                    <td>{{ t.task }}</td>
+                    <td><a href="/todo/delete?id={{t.id}}">删除</a></td>
+                    <td><a href="/todo/edit?id={{t.id}}">修改</a></td>
+                    <td>{{ t.formatted_created_time() }}</td>
+                    <td>{{ t.formatted_updated_time() }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 </body>
+<style>
+    .center_left {
+        position: relative;
+        top: 50px;
+        left: 380px;
+    }
+    .center_right{
+        position: relative;
+        right: 175px;
+    }
+    .center {
+        position: absolute;
+        left: 25%;
+        top: 10%;
+
+    }
+    </style>
 </html>

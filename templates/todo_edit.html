@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>修改 todo 的页面</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
 </head>
 <body>
-    <h1>修改 todo</h1>
-    <form action="/todo/update" method="post">
-        <input hidden="hidden" name="id" placeholder="id" value="{{ todo.id }}"></input>
-        <br>
-        <input name="task" placeholder="task" value="{{ todo.task }}"></input>
-        <br>
-        <button>提交修改</button>
+<div class="center">
+    <h2>修改 {{ user.username }} 的todo</h2>
+    <form class="pure-form" action="/todo/update" method="post">
+        <fieldset>
+            <input hidden="hidden" name="id" value="{{ todo.id }}">
+
+            <input name="task" placeholder="task" value="{{ todo.task }}">
+            <button type="submit" class="pure-button pure-button-primary">提交修改</button>
+        </fieldset>
     </form>
+</div>
 </body>
+<style>
+    .center {
+        position: absolute;
+        left: 35%;
+        top: 30%;
+    }
+</style>
 </html>

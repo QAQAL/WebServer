@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>修改 weibo 的页面</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
 </head>
 <body>
-    <h1>修改 weibo</h1>
-    <form action="/weibo/update" method="post">
-        <input hidden="hidden" name="id" placeholder="id" value="{{ weibo.id }}"></input>
-        <br>
-        <input name="content" placeholder="content" value="{{ weibo.content }}"></input>
-        <br>
-        <button>提交修改</button>
-    </form>
+    <div class="center">
+        <h2>修改 {{ user.username }} 的weibo</h2>
+        <form class="pure-form" action="/weibo/update" method="post">
+            <fieldset>
+                <input hidden="hidden" name="id" value="{{ weibo.id }}">
+
+                <input name="content" placeholder="content" value="{{ weibo.content }}">
+                <button type="submit" class="pure-button pure-button-primary">提交修改</button>
+            </fieldset>
+        </form>
+    </div>
 </body>
+<style>
+    .center {
+        position: absolute;
+        left: 35%;
+        top: 30%;
+    }
+</style>
 </html>
+
